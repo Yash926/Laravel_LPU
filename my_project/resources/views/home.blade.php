@@ -35,5 +35,13 @@
         <h1>Welcome to Laravel Routing</h1>
         <p class="subtitle">Start building your web application with Laravel's powerful routing system!</p>
     </div>
+    <?php
+    // print_r($cars);
+    // foreach ($cars as $car) {
+    //     echo $car . "<br>";
+    // }
+
+    echo "The sum is ".$num1+$num2;
+    ?>
 </body>
 </html>

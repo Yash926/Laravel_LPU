@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 
 Route::get('/', function () 
 {
@@ -30,9 +31,51 @@ Route::get('lpu/{name?}', function ($name="user")
 {
     return 'Welcome to LPU, ' . ucfirst($name);
 });
+
+Route::get('/detail',function(){
+    $details=[
+        "name"=>"Yash Tripathi",
+        "age"=>21,
+        "email"=>"tripathiyash143@gmail.com"
+    ];
+return ("the name is ".$details['name']."<br> the age is ".$details['age']."<br> the email is ".$details['email']);
+});
+
+Route::get('/add/{num1}/{num2}',function($num1,$num2){
+    return view('home',compact('num1','num2'));
+});
+
+Route::get('/cars',function()
+{
+    $cars = array('BMW', 'Audi', 'Mercedes', 'Toyota');
+    return view('home', ['cars' => $cars]);
+});
+
+Route::get('/fruits', function () 
+{
+    $fruits = array('Mango', 'Apple', 'Banana', 'Orange');
+    return view('fruits', ['fruits' => $fruits]);
+});
+
+Route::get('/table/{number}', function($number) {
+    return view('table', ['number' => $number]);
+});
+
+//sub routes
+Route::get('/mypage/lpu/home', function () 
+{
+    return view('home');
+});
+
+//redirecting to any other url
+// Route::redirect('/about', '/hi'); //if i aopen about then it will redirect to the h'/_url'
+Route::redirect('/homep','/table/5');
+
 Route::get('/profile/{name}/{age}', function ($name, $age) {
     return view('profile', ['name' => $name, 'age' => $age]);
 });
+
+
 Route::get('/hi', function () 
 {
     return ('<script> alert( "abouteUs" ); </script>
