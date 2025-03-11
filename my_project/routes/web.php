@@ -2,6 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
+use App\Http\Controllers\MyController;
+//using Controller
+Route::get('/control', [MyController::class, 'hello']);
+//Passing parameter to controller
+Route::get('/control/{name}', [MyController::class, 'passparameter']);
+
+//calling blade template in controller
+Route::get('/form', [MyController::class, 'form']);
+
+Route::post('/submit', [MyController::class, 'formSub']);
 
 Route::get('/', function () 
 {
@@ -100,3 +110,39 @@ Route::get('/about/{name}', function ($name)
 
 //redirecting to any other url
 Route::redirect('/about', '/hi'); //if i aopen about then it will redirect to the h'/_url'
+
+
+
+//Json response
+Route::get('/json', function () 
+{
+    return response()->json([
+        'name' => 'Yash Tripathi',
+        'age' => 21,
+        'email' => 'yt@gamil.com'
+    ]);
+});
+
+//named routes
+Route::get('/user/profile', function () 
+{
+    return view('profile');
+})->name('profile');
+
+
+Route::get('/setCookie', function (){
+    return response('Hello World')->cookie(
+        'name', 'Yash Tripathi', 60
+    );
+});
+
+
+Route::get('/getCookie', function () {
+    return request()->cookie('name');
+});
+
+
+Route::get('/deleteCookie', function () {
+    return response('Cookie has been deleted')->cookie('name',-1);
+});
+

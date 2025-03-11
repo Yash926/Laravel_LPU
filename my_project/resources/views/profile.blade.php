@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="profile-text">
-        Hello {{ $name }}, you're {{ $age }} years old
+        Hello {{ $Name }}, you're {{ $age }} years old
     </div>
 </body>
 </html>
