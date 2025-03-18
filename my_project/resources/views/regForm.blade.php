@@ -85,10 +85,16 @@
     </style>
 </head>
 <body>
+
+<!-- @if ($errors->any())
+@foreach ($errors->all() as $error)
+    <div style="color: red; background-color: #f9d6d5; padding: 10px; border-radius: 4px; margin-bottom: 10px;">{{ $error }}</div>
+@endforeach
+@endif -->
     <form action="/submit" method="post">
         @csrf
         <h2 style="text-align: center; color: #333;">Registration Form</h2>
-        <input type="text" name="name" placeholder="Enter your name" required>
+        <input type="text" name="name" placeholder="Enter your name" required>   
         <input type="email" name="email" placeholder="Enter your email" required>
         <input type="password" name="password" placeholder="Enter your password" required>
         

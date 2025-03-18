@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\MyController;
+use App\Http\Controllers\StudentsController;
+
+
+Route::get('/database', [StudentsController::class, 'index']);
+
 //using Controller
 Route::get('/control', [MyController::class, 'hello']);
 //Passing parameter to controller
