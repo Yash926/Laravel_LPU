@@ -13,13 +13,14 @@ class StudentsController extends Controller
     public function index()
     {
         // return "This is data from my database";
-        // $students = \App\Models\Students::all();
+        $students = \App\Models\Students::all();
         // $students = students::where('id',1)->get();
         // $students = students::sum('age');
-        $students = students::find(1);
+        // $students = students::find(1);
         // $students = students::find(1,['name','age']);
-        $students = students::min('id');
-        return $students;
+        // $students = students::min('id');
+        // return $students;
+        return view('student', compact('students'));
     }
 
     /**

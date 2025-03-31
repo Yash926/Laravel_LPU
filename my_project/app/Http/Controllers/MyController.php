@@ -34,8 +34,8 @@ class MyController extends Controller
             'interests'=>'required',
             'experience'=>'required'
         ]);
-        // return response()->json($jsonnresponse);
-        }
+        return response()->json($jsonnresponse);
+    }
     
         private function messages(){
             return [
