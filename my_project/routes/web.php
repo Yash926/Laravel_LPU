@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\View;
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\StudentsController;
 
+use App\Http\Controllers\ProjectController;
+
+Route::get('/projects', [ProjectController::class, 'index']);
 
 Route::get('/database', [StudentsController::class, 'index']);
 
