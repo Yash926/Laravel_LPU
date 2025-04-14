@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>Profile</title>
@@ -18,4 +18,6 @@
         Hello {{ $Name }}, you're {{ $age }} years old
     </div>
 </body>
-</html>
+</html> -->
+
+<h1></h1>

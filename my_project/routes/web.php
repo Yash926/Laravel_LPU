@@ -7,6 +7,10 @@ use App\Http\Controllers\StudentsController;
 
 use App\Http\Controllers\ProjectController;
 
+Route::get('/aboutus', function () {
+    return view('about');
+});
+
 Route::get('/projects', [ProjectController::class, 'index']);
 
 Route::get('/database', [StudentsController::class, 'index']);
@@ -88,6 +92,8 @@ Route::get('/mypage/lpu/home', function ()
 //redirecting to any other url
 // Route::redirect('/about', '/hi'); //if i aopen about then it will redirect to the h'/_url'
 Route::redirect('/homep','/table/5');
+
+
 
 Route::get('/profile/{name}/{age}', function ($name, $age) {
     return view('profile', ['name' => $name, 'age' => $age]);
