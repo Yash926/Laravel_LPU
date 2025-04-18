@@ -4,8 +4,19 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\StudentsController;
-
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\FileUpload;
+
+use App\Http\Controllers\MailController;
+
+Route::get('/sendemail',[MailController::class,'sendemail']);
+
+Route::view('/file','fileUpload');
+Route::post('/uploadfile',[FileUpload::class,'onClick']);
+
+Route::get('/welcome-page',function(){
+    return view ('welcome');
+});
 
 Route::get('/aboutus', function () {
     return view('about');
@@ -25,10 +36,10 @@ Route::get('/form', [MyController::class, 'form']);
 
 Route::post('/submit', [MyController::class, 'formSub']);
 
-Route::get('/', function () 
-{
-    return view('welcome');
-});
+// Route::get('/', function () 
+// {
+//     return view('welcome');
+// });
 
 Route::get('/hello', function () 
 {
