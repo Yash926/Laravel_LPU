@@ -9,6 +9,17 @@ use App\Http\Controllers\FileUpload;
 
 use App\Http\Controllers\MailController;
 
+
+
+Route::get('/test-mongo', function () {
+    try {
+        $dbs = DB::connection('mongodb')->getMongoClient()->listDatabases();
+        return "MongoDB Connection Successful! Databases: " . json_encode($dbs);
+    } catch (\Exception $e) {
+        return "MongoDB Connection Failed: " . $e->getMessage();
+    }
+});
+
 Route::get('/sendemail',[MailController::class,'sendemail']);
 
 Route::view('/file','fileUpload');

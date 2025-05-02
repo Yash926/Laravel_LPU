@@ -8,6 +8,6 @@
 <body>
     Dummy email
     {{$msg}}
-    
+    enjoy
 </body>
 </html>
